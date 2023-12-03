@@ -1,3 +1,14 @@
 spring:
-  profiles:
-    include: secret
+  application:
+    name: gateway-service
+
+server:
+  port: 8000
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-register: false
+    service-url:
+      default-zone: http://localhost:8761/eureka
+
