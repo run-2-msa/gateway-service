@@ -11,29 +11,29 @@ eureka:
 spring:
   application:
     name: gateway-service
-  cloud:
-    gateway:
-      default-filters:
-        - name: GlobalFilter
-          args:
-            baseMessage: Spring Cloud Gateway Global Filter
-            preLogger: true
-            postLogger: true
-      routes:
-        - id: first-service
-          uri: lb://FIRST-SERVICE # round robbin
-          predicates:
-            - Path=/first-service/**
-          filters:
-            - name: CustomFilter
-        - id: second-service
-          uri: lb://SECOND-SERVICE
-          predicates:
-            - Path=/second-service/**
-          filters:
-            - name: CustomFilter
-            - name: LoggingFilter
-              args:
-                baseMessage: Hi, there. Logging Filter
-                preLogger: true
-                postLogger: true
+#  cloud:
+#    gateway:
+#      default-filters:
+#        - name: GlobalFilter
+#          args:
+#            baseMessage: Spring Cloud Gateway Global Filter
+#            preLogger: true
+#            postLogger: true
+#      routes:
+#        - id: first-service
+#          uri: lb://FIRST-SERVICE # round robbin
+#          predicates:
+#            - Path=/first-service/**
+#          filters:
+#            - name: CustomFilter
+#        - id: second-service
+#          uri: lb://SECOND-SERVICE
+#          predicates:
+#            - Path=/second-service/**
+#          filters:
+#            - name: CustomFilter
+#            - name: LoggingFilter
+#              args:
+#                baseMessage: Hi, there. Logging Filter
+#                preLogger: true
+#                postLogger: true
