@@ -20,7 +20,6 @@ public class LoggingFilter extends AbstractGatewayFilterFactory<LoggingFilter.Co
 
     @Override
     public GatewayFilter apply(Config config) {
-        //GatewayFilter filter = new OrderedGatewayFilter((exchange, chain) -> {
         return new OrderedGatewayFilter((exchange, chain) -> {
             ServerHttpRequest request = exchange.getRequest();
             ServerHttpResponse response = exchange.getResponse();
@@ -41,8 +40,8 @@ public class LoggingFilter extends AbstractGatewayFilterFactory<LoggingFilter.Co
     @Data
     public static class Config {
         //Put the configuration properties for your filter here
-        private String baseMessage;
-        private boolean preLogger;
-        private boolean postLogger;
+        private String baseMessage = "기본 메시지 지정";
+        private boolean preLogger = true;
+        private boolean postLogger = true;
     }
 }
