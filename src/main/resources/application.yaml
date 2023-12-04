@@ -32,3 +32,8 @@ spring:
             - Path=/second-service/**
           filters:
             - name: CustomFilter
+            - name: LoggingFilter # Logging Filter
+              args:
+                baseMessage: Hi, there. Logging Filter
+                preLogger: true
+                postLogger: true
