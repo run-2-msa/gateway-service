@@ -26,6 +26,12 @@ spring:
             - Path=/user-service/**
           filters:
             - RewritePath=/user-service, /
+        - id: catalog-service
+          uri: lb://CATALOG-SERVICE # round robbin
+          predicates:
+            - Path=/catalog-service/**
+          filters:
+            - RewritePath=/catalog-service, /
 #        - id: first-service
 #          uri: lb://FIRST-SERVICE # round robbin
 #          predicates:
