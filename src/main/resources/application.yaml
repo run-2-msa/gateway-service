@@ -32,6 +32,12 @@ spring:
             - Path=/catalog-service/**
           filters:
             - RewritePath=/catalog-service, /
+        - id: order-service
+          uri: lb://ORDER-SERVICE # round robbin
+          predicates:
+            - Path=/order-service/**
+          filters:
+            - RewritePath=/order-service, /
 #        - id: first-service
 #          uri: lb://FIRST-SERVICE # round robbin
 #          predicates:
