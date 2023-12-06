@@ -27,14 +27,6 @@ spring:
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
-            - Path=/user-service/sign** # test login1
-            - Method=POST
-          filters:
-            - RemoveRequestHeader=Cookie # cookie reset
-            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
-        - id: user-service
-          uri: lb://USER-SERVICE
-          predicates:
             - Path=/user-service/login # test login2
             - Method=POST
           filters:
@@ -56,6 +48,8 @@ spring:
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+            - name: AuthorizationHeaderFilter # jwt filter
+
         - id: catalog-service
           uri: lb://CATALOG-SERVICE # round robbin
           predicates:
@@ -68,6 +62,10 @@ spring:
             - Path=/order-service/**
           filters:
             - RewritePath=/order-service, /
+
+token:
+  secret:
+    key: asdffsdsdsdfsadsdfsdsdfsdfdsfsfs # 32 character, minimum 256bit // 512는 64character 512bit
 #        - id: first-service
 #          uri: lb://FIRST-SERVICE # round robbin
 #          predicates:
