@@ -5,8 +5,8 @@ management:
   endpoints:
     web:
       exposure:
-        include: refresh, health, beans, httptrace
+        include: refresh, health, beans, httpexchanges
 
-# include: * # 전부 가져오기
+# include: "*" # 전부 가져오기
 # refresh의 의미는 Config Server에 저장된 내용에 변경이 일어나면 user-service 재 시작 없이 바뀌는 대로 가져 오겠다
-# httptrace ->
+# httpexchanges -> 가장 최근 100건의 stack trace 생성 -> HttpExchangeRepository 빈이 필요함

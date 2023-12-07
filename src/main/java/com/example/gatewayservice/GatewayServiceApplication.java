@@ -17,9 +17,10 @@ public class GatewayServiceApplication {
 
 
 	// HttpTraceRepository, InMemoryHttpTraceRepository 3.x부터 변경 됨
+	//
 	@Bean
 	public HttpExchangeRepository httpExchangeRepository() {
-		return new InMemoryHttpExchangeRepository(); 
+		return new InMemoryHttpExchangeRepository();
 	}
 
 }
