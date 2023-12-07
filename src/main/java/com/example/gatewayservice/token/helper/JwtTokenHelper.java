@@ -35,7 +35,7 @@ public class JwtTokenHelper implements TokenHelper {
 
             var subject = result.getBody().getSubject();
 
-            if(StringUtils.isNotNullOrNotBlank(subject)){
+            if(StringUtils.isNullOrBlankOrEmpty(subject)){
                 return TokenErrorCode.SUBJECT_EMPTY;
             }
 
