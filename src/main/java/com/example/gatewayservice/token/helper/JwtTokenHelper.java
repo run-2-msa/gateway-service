@@ -8,21 +8,26 @@ import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Primary;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
 @Component
 @Primary
+@RequiredArgsConstructor
 public class JwtTokenHelper implements TokenHelper {
-    @Value("${token.secret.key}")
-    private String secretKey;
+    /*@Value("${token.secret.key}")
+    private String secretKey;*/
+    private final Environment env;
 
     @Override
     public ErrorCodeIfs validationToken(String token) {
-
+        var secretKey = Objects.requireNonNull(env.getProperty("token.secret.key"));
         var key = Keys.hmacShaKeyFor(secretKey.getBytes());
 
         var parser = Jwts.parserBuilder()

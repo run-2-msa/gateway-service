@@ -1,0 +1,7 @@
+# Config Server
+spring:
+  cloud:
+    config:
+      name: common
+  config:
+    import: optional:configserver:http://localhost:8888 # bootstrap 사용 안하고 설정

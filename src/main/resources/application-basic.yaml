@@ -1,0 +1,18 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: gateway-service
+
+eureka:
+  client:
+    register-with-eureka: true #
+    fetch-register: true #
+    service-url:
+      default-zone: http://localhost:8761/eureka
+
+# Config Server로 변경
+#token:
+#  secret:
+#    key: asdffsdsdsdfsadsdfsdsdfsdfdsfsfs # 32 character, minimum 256bit // 512는 64character 512bit
