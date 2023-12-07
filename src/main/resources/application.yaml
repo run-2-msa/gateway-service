@@ -1,4 +1,10 @@
+server:
+  port: 8000
+
 spring:
+  application:
+    name: gateway-service # name은 반드시 root에 작성하지 않으면 config에 다시 작성 해줘야 함..
+
   profiles:
-    include: basic, config, actuator, route
+    include: eureka, config, actuator, route
 
