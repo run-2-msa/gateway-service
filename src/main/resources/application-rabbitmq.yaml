@@ -1,0 +1,6 @@
+spring:
+  rabbitmq: # @Bean으로 작성한 RabbitTemplate 쪽에서 ConnectionFactory 자동으로 생성
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin123
