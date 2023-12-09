@@ -51,13 +51,13 @@ spring:
           predicates:
             - Path=/catalog-service/**
           filters:
-            - RewritePath=/catalog-service, /
+            - RewritePath=/catalog-service/(?<segment>.*), /$\{segment}
         - id: order-service
           uri: lb://ORDER-SERVICE # round robbin
           predicates:
             - Path=/order-service/**
           filters:
-            - RewritePath=/order-service, /
+            - RewritePath=/order-service/(?<segment>.*), /$\{segment}
 
 #        - id: first-service
 #          uri: lb://FIRST-SERVICE # round robbin
